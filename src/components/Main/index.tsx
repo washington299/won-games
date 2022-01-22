@@ -5,7 +5,7 @@ export type MainProps = {
 	description?: string;
 };
 
-export const Main = ({ title, description }: MainProps) => {
+export const Main = ({ title = "title", description = "description" }: MainProps) => {
 	return (
 		<S.Wrapper>
 			<h1>{title}</h1>
