@@ -7,5 +7,10 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials"
   ],
-  "framework": "@storybook/react"
+  "framework": "@storybook/react",
+	webpackFinal: (config) => {
+		config.resolve.modules.push(`${process.cwd()}/src`)
+
+		return config
+	}
 }
