@@ -8,7 +8,11 @@ exports[`<Main /> should render correctly 1`] = `
 <div
   class="c0"
 >
-  <h1 />
-  <p />
+  <h1>
+    title
+  </h1>
+  <p>
+    description
+  </p>
 </div>
 `;
