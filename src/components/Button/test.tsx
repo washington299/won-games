@@ -16,6 +16,9 @@ describe("<Button />", () => {
 
 		expect(screen.getByRole("button", { name: /My button/i })).toHaveStyle({ height: "4rem" });
 		expect(screen.getByRole("button", { name: /My button/i })).toHaveStyle({ fontSize: "1.4rem" });
+		expect(screen.getByRole("button", { name: /My button/i })).toHaveStyle({
+			padding: "0.8rem 3.2rem",
+		});
 	});
 
 	it("should render button with small size when prop is passed", () => {
@@ -23,6 +26,9 @@ describe("<Button />", () => {
 
 		expect(screen.getByRole("button", { name: /My button/i })).toHaveStyle({ height: "3rem" });
 		expect(screen.getByRole("button", { name: /My button/i })).toHaveStyle({ fontSize: "1.2rem" });
+		expect(screen.getByRole("button", { name: /My button/i })).toHaveStyle({
+			padding: "0.8rem 1.6rem",
+		});
 	});
 
 	it("should render button with large size when prop is passed", () => {
@@ -30,5 +36,8 @@ describe("<Button />", () => {
 
 		expect(screen.getByRole("button", { name: /My button/i })).toHaveStyle({ height: "5rem" });
 		expect(screen.getByRole("button", { name: /My button/i })).toHaveStyle({ fontSize: "1.6rem" });
+		expect(screen.getByRole("button", { name: /My button/i })).toHaveStyle({
+			padding: "0.8rem 4.8rem",
+		});
 	});
 });
