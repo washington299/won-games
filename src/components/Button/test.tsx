@@ -40,4 +40,10 @@ describe("<Button />", () => {
 			padding: "0.8rem 4.8rem",
 		});
 	});
+
+	it("should render button with full width when prop is passed", () => {
+		renderWithTheme(<Button fullWidth>My button</Button>);
+
+		expect(screen.getByRole("button", { name: /My button/i })).toHaveStyle({ width: "100%" });
+	});
 });
