@@ -18,11 +18,15 @@ const wrapperModifier = {
 		font-size: ${theme.font.sizes.medium};
 		padding: ${theme.spacings.xxsmall} ${theme.spacings.xlarge};
 	`,
+	fullWidth: () => css`
+		width: 100%;
+	`,
 };
 
 export const Wrapper = styled.button<ButtonProps>`
-	${({ theme, size }) => css`
+	${({ theme, size, fullWidth }) => css`
 		${!!size && wrapperModifier[size](theme)};
+		${!!fullWidth && wrapperModifier.fullWidth()};
 
 		background: linear-gradient(180deg, #ff5f5f -15%, #f062c0 100%, #f23131 100%);
 		color: ${theme.colors.white};
