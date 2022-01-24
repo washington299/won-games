@@ -7,9 +7,10 @@ import { Button } from ".";
 
 describe("<Button />", () => {
 	it("should render button text correctly", () => {
-		renderWithTheme(<Button>My button</Button>);
+		const { container } = renderWithTheme(<Button>My button</Button>);
 
 		expect(screen.getByText(/My button/i)).toBeInTheDocument();
+		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	it("should render button with medium size by default", () => {

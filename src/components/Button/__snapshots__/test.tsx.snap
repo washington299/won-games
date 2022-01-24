@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button /> should render button text correctly 1`] = `
+.c0 {
+  height: 4rem;
+  font-size: 1.4rem;
+  padding: 0.8rem 3.2rem;
+  background: linear-gradient(180deg,#ff5f5f -15%,#f062c0 100%,#f23131 100%);
+  color: #FAFAFA;
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+
+.c0 svg {
+  width: 2rem;
+}
+
+<button
+  class="c0"
+>
+  <span>
+    My button
+  </span>
+</button>
+`;
