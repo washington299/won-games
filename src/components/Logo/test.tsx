@@ -9,6 +9,7 @@ describe("<Logo />", () => {
 		renderWithTheme(<Logo />);
 
 		expect(screen.getByLabelText(/Won games/i).parentElement).toHaveStyle({ color: "#FAFAFA" });
+		expect(screen.getByLabelText(/Won games/i).parentElement).toMatchSnapshot();
 	});
 
 	it("should render black label if black color is passed on props", () => {
