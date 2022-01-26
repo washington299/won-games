@@ -31,12 +31,14 @@ describe("<Logo />", () => {
 		expect(screen.getByLabelText(/Won games/i).parentElement).toHaveStyle({ height: "5.9rem" });
 	});
 
-	it("should hide label if hideLabel is passed on props", () => {
+	it("should hide label on mobile devices if hideLabel is passed on props", () => {
 		renderWithTheme(<Logo hideLabel />);
 
-		expect(screen.getByLabelText(/Won games/i).parentElement).toHaveStyle({ width: "5.8rem" });
-		expect(screen.getByLabelText(/Won games/i).parentElement).toHaveStyle({ height: "4.5rem" });
-		expect(screen.getByLabelText(/Won games/i)).toHaveStyle({ height: "4.5rem" });
-		expect(screen.getByLabelText(/Won games/i)).toHaveStyle({ pointerEvents: "none" });
+		expect(screen.getByLabelText(/Won games/i).parentElement).toHaveStyleRule("width", "5.8rem", {
+			media: "(max-width: 768px)",
+		});
+		expect(screen.getByLabelText(/Won games/i).parentElement).toHaveStyleRule("height", "4.5rem", {
+			media: "(max-width: 768px)",
+		});
 	});
 });
