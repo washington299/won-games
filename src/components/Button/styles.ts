@@ -34,10 +34,6 @@ const wrapperModifier = {
 		width: 100%;
 	`,
 	withICon: (theme: DefaultTheme) => css`
-		display: inline-flex;
-		justify-content: center;
-		align-items: center;
-
 		svg {
 			& + span {
 				margin-left: ${theme.spacings.xxsmall};
@@ -52,10 +48,19 @@ export const Wrapper = styled.button<{ hasIcon: boolean } & ButtonProps>`
 		${!!fullWidth && wrapperModifier.fullWidth()};
 		${!!hasIcon && wrapperModifier.withICon(theme)}
 
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
 		background: linear-gradient(180deg, #ff5f5f -15%, #f062c0 100%, #f23131 100%);
 		color: ${theme.colors.white};
 		border: none;
 		border-radius: ${theme.border.radius};
 		cursor: pointer;
+		text-decoration: none;
+
+		&:hover {
+			background: linear-gradient(180deg, #e35565 0%, #d958a6 100%),
+				linear-gradient(178.59deg, #ff5f5f -14.51%, #f062c0 102.86%, #f23131 102.86%);
+		}
 	`}
 `;
