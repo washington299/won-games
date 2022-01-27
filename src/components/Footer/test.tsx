@@ -5,12 +5,14 @@ import { Footer } from ".";
 
 describe("<Footer />", () => {
 	it("should render Footer with correct elements", () => {
-		renderWithTheme(<Footer />);
+		const { container } = renderWithTheme(<Footer />);
 
 		expect(screen.getByLabelText(/Won games/i)).toBeInTheDocument();
 		expect(screen.getByText(/Contact/i)).toBeInTheDocument();
 		expect(screen.getByText(/Follow us/i)).toBeInTheDocument();
 		expect(screen.getByText(/Links/i)).toBeInTheDocument();
 		expect(screen.getByText(/Location/i)).toBeInTheDocument();
+
+		expect(container.firstChild).toMatchSnapshot();
 	});
 });
