@@ -44,4 +44,15 @@ describe("<Heading />", () => {
 			{ modifier: "::after" },
 		);
 	});
+
+	it("Should render a small size if prop is passed", () => {
+		renderWithTheme(<Heading size="small">Won games</Heading>);
+
+		expect(screen.getByRole("heading", { name: /Won games/i })).toHaveStyle({
+			fontSize: "1.6rem",
+		});
+		expect(screen.getByRole("heading", { name: /Won games/i })).toHaveStyleRule("width", "3rem", {
+			modifier: "::after",
+		});
+	});
 });
