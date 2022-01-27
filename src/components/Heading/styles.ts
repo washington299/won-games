@@ -1,6 +1,6 @@
 import styled, { css, DefaultTheme } from "styled-components";
 
-import { HeadingProps } from ".";
+import { HeadingProps, LineColors } from ".";
 
 const wrapperModifier = {
 	small: (theme: DefaultTheme) => css`
@@ -15,12 +15,12 @@ const wrapperModifier = {
 		font-size: ${theme.font.sizes.xlarge};
 	`,
 
-	lineLeft: (theme: DefaultTheme) => css`
+	lineLeft: (theme: DefaultTheme, lineColor: LineColors) => css`
 		padding-left: ${theme.spacings.xxsmall};
-		border-left: 0.7rem solid ${theme.colors.secondary};
+		border-left: 0.7rem solid ${theme.colors[lineColor]};
 	`,
 
-	lineBottom: (theme: DefaultTheme) => css`
+	lineBottom: (theme: DefaultTheme, lineColor: LineColors) => css`
 		position: relative;
 		margin-bottom: ${theme.spacings.medium};
 
@@ -31,15 +31,15 @@ const wrapperModifier = {
 			bottom: -1rem;
 			width: 5rem;
 			height: 0.5rem;
-			border-bottom: 0.5rem solid ${theme.colors.primary};
+			border-bottom: 0.5rem solid ${theme.colors[lineColor]};
 		}
 	`,
 };
 
 export const Wrapper = styled.h2<HeadingProps>`
-	${({ theme, color, lineLeft, lineBottom, size }) => css`
-		${lineLeft && wrapperModifier.lineLeft(theme)};
-		${lineBottom && wrapperModifier.lineBottom(theme)};
+	${({ theme, color, lineLeft, lineBottom, lineColor, size }) => css`
+		${lineLeft && wrapperModifier.lineLeft(theme, lineColor!)};
+		${lineBottom && wrapperModifier.lineBottom(theme, lineColor!)};
 		${!!size && wrapperModifier[size](theme)};
 
 		color: ${theme.colors[color!]};
