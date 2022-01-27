@@ -31,7 +31,7 @@ describe("<Heading />", () => {
 		renderWithTheme(<Heading lineLeft>Won games</Heading>);
 
 		expect(screen.getByRole("heading", { name: /Won games/i })).toHaveStyle({
-			borderLeft: "0.7rem solid #3CD3C1",
+			borderLeft: "0.7rem solid #F231A5",
 		});
 	});
 
@@ -54,5 +54,39 @@ describe("<Heading />", () => {
 		expect(screen.getByRole("heading", { name: /Won games/i })).toHaveStyleRule("width", "3rem", {
 			modifier: "::after",
 		});
+	});
+
+	it("Should render line with primary color if prop is passed", () => {
+		renderWithTheme(
+			<Heading lineColor="primary" lineBottom lineLeft>
+				Won games
+			</Heading>,
+		);
+
+		expect(screen.getByRole("heading", { name: /Won games/i })).toHaveStyle({
+			borderLeft: "0.7rem solid #F231A5",
+		});
+		expect(screen.getByRole("heading", { name: /Won games/i })).toHaveStyleRule(
+			"border-bottom",
+			"0.5rem solid #F231A5",
+			{ modifier: "::after" },
+		);
+	});
+
+	it("Should render line with secondary color if prop is passed", () => {
+		renderWithTheme(
+			<Heading lineColor="secondary" lineBottom lineLeft>
+				Won games
+			</Heading>,
+		);
+
+		expect(screen.getByRole("heading", { name: /Won games/i })).toHaveStyle({
+			borderLeft: "0.7rem solid #3CD3C1",
+		});
+		expect(screen.getByRole("heading", { name: /Won games/i })).toHaveStyleRule(
+			"border-bottom",
+			"0.5rem solid #3CD3C1",
+			{ modifier: "::after" },
+		);
 	});
 });
