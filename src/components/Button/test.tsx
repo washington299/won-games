@@ -54,4 +54,15 @@ describe("<Button />", () => {
 
 		expect(screen.getByTestId("icon")).toBeInTheDocument();
 	});
+
+	it("should render button as a link", () => {
+		renderWithTheme(
+			<Button as="a" href="/link" size="large">
+				My button
+			</Button>,
+		);
+
+		expect(screen.getByRole("link", { name: /My button/i })).toHaveAttribute("href", "/link");
+		expect(screen.getByRole("link", { name: /My button/i })).toHaveStyle({ fontSize: "1.6rem" });
+	});
 });
