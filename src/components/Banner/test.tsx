@@ -14,7 +14,7 @@ const bannerMock = {
 
 describe("<Banner />", () => {
 	it("should render Banner with correct elements", () => {
-		renderWithTheme(<Banner {...bannerMock} />);
+		const { container } = renderWithTheme(<Banner {...bannerMock} />);
 
 		expect(screen.getByRole("img", { name: /Borderlans/i })).toBeInTheDocument();
 		expect(screen.getByRole("heading", { name: /Borderlans/i })).toBeInTheDocument();
@@ -27,5 +27,6 @@ describe("<Banner />", () => {
 			"href",
 			"/games/borderlans",
 		);
+		expect(container.firstChild).toMatchSnapshot();
 	});
 });
