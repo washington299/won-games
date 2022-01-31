@@ -3,6 +3,7 @@ import { screen } from "@testing-library/react";
 import { renderWithTheme } from "utils/tests/helpers";
 
 import { Highlight } from ".";
+import * as S from "./styles";
 
 const highlightMock = {
 	title: "Read Dead it’s back",
@@ -39,5 +40,25 @@ describe("<Highlight />", () => {
 			"src",
 			"/red-dead-img.png",
 		);
+	});
+
+	it("should render Highlight on right side by default", () => {
+		const { container } = renderWithTheme(<Highlight {...highlightMock} />);
+
+		// eslint-disable-next-line prettier/prettier
+		expect(container.firstChild).toHaveStyleRule('grid-template-areas', "'floatImage content'");
+		expect(container.firstChild).toHaveStyleRule("text-align", "right", {
+			modifier: `${S.Content}`,
+		});
+	});
+
+	it("should render Highlight on left side if prop is passed", () => {
+		const { container } = renderWithTheme(<Highlight {...highlightMock} alignment="left" />);
+
+		// eslint-disable-next-line prettier/prettier
+		expect(container.firstChild).toHaveStyleRule('grid-template-areas', "'content floatImage'");
+		expect(container.firstChild).toHaveStyleRule("text-align", "left", {
+			modifier: `${S.Content}`,
+		});
 	});
 });
