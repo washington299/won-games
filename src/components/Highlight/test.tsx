@@ -7,6 +7,7 @@ import { Highlight } from ".";
 const highlightMock = {
 	title: "Read Dead it’s back",
 	subtitle: "Come see John’s new adventures",
+	backgroundImage: "/red-dead-background.jpg",
 	buttonLabel: "Buy now",
 	buttonLink: "/games/red-dead",
 };
@@ -23,5 +24,11 @@ describe("<Highlight />", () => {
 			"href",
 			"/games/red-dead",
 		);
+	});
+
+	it("should render background image correctly", () => {
+		const { container } = renderWithTheme(<Highlight {...highlightMock} />);
+
+		expect(container.firstChild).toHaveStyle({ backgroundImage: "url(/red-dead-background.jpg)" });
 	});
 });
