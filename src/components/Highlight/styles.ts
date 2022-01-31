@@ -9,6 +9,8 @@ export const Wrapper = styled.section<WrapperProps>`
 	${({ backgroundImage }) => css`
 		height: 23rem;
 		display: grid;
+		grid-template-areas: "floatImage content";
+		grid-template-columns: 1.3fr 2fr;
 		position: relative;
 		background-image: url(${backgroundImage});
 		background-position: center center;
@@ -28,8 +30,23 @@ export const Wrapper = styled.section<WrapperProps>`
 	`}
 `;
 
+export const FloatImage = styled.img`
+	${({ theme }) => css`
+		max-height: 23rem;
+		max-width: 100%;
+		grid-area: floatImage;
+		align-self: end;
+		z-index: ${theme.layers.base};
+
+		${media.greaterThan("medium")`
+			max-height: 32rem;
+		`}
+	`}
+`;
+
 export const Content = styled.div`
 	${({ theme }) => css`
+		grid-area: content;
 		padding: ${theme.spacings.xsmall};
 		text-align: right;
 		z-index: ${theme.layers.base};
