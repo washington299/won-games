@@ -1,20 +1,43 @@
+/* eslint-disable prettier/prettier */
 import styled, { css } from "styled-components";
 import media from "styled-media-query";
 
 import { HightlightProps } from ".";
 
-type WrapperProps = Pick<HightlightProps, "backgroundImage">;
+type WrapperProps = Pick<HightlightProps, "backgroundImage" | "alignment">;
+
+const wrapperModifier = {
+	left: () => css`
+		grid-template-areas: 'content floatImage';
+		grid-template-columns: 2fr 1.3fr;
+
+		${Content} {
+			text-align: left;
+		}
+
+		${FloatImage} {
+			justify-self: end;
+		}
+	`,
+	right: () => css`
+		grid-template-areas: 'floatImage content';
+		grid-template-columns: 1.3fr 2fr;
+
+		${Content} {
+			text-align: right;
+		}
+	`,
+};
 
 export const Wrapper = styled.section<WrapperProps>`
-	${({ backgroundImage }) => css`
+	${({ backgroundImage, alignment }) => css`
 		height: 23rem;
-		display: grid;
-		grid-template-areas: "floatImage content";
-		grid-template-columns: 1.3fr 2fr;
 		position: relative;
 		background-image: url(${backgroundImage});
 		background-position: center center;
 		background-size: cover;
+		display: grid;
+
 
 		&::after {
 			content: "";
@@ -27,6 +50,8 @@ export const Wrapper = styled.section<WrapperProps>`
 		${media.greaterThan("medium")`
 			height: 32rem;
 		`}
+
+		${wrapperModifier[alignment!]()};
 	`}
 `;
 
@@ -48,7 +73,6 @@ export const Content = styled.div`
 	${({ theme }) => css`
 		grid-area: content;
 		padding: ${theme.spacings.xsmall};
-		text-align: right;
 		z-index: ${theme.layers.base};
 
 		${media.greaterThan("medium")`
