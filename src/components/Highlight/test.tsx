@@ -31,4 +31,13 @@ describe("<Highlight />", () => {
 
 		expect(container.firstChild).toHaveStyle({ backgroundImage: "url(/red-dead-background.jpg)" });
 	});
+
+	it("should render float image correctly", () => {
+		renderWithTheme(<Highlight {...highlightMock} floatImage="/red-dead-img.png" />);
+
+		expect(screen.getByRole("img", { name: highlightMock.title })).toHaveAttribute(
+			"src",
+			"/red-dead-img.png",
+		);
+	});
 });
