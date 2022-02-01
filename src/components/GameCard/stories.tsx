@@ -6,7 +6,7 @@ export default {
 	title: "GameCard",
 	component: GameCard,
 	args: {
-		img: "/gameCard-img.png",
+		img: "https://source.unsplash.com/user/willianjusten/1042x580",
 		title: "Population Zero",
 		subtitle: "Other ocean",
 		price: "R$ 215,00",

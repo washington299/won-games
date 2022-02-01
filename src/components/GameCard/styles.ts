@@ -1,13 +1,97 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const Wrapper = styled.article``;
+export const Wrapper = styled.article`
+	${() => css`
+		width: 30rem;
+		display: flex;
+		flex-direction: column;
+	`}
+`;
 
-export const Image = styled.img``;
+export const ImageBox = styled.div`
+	width: 100%;
+	height: 14rem;
+	background: #f6f7f8;
+	background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
+	background-size: 80rem 14rem;
+	animation: placeholderShimmer 1s linear infinite forwards;
 
-export const Title = styled.h3``;
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
 
-export const Subtitle = styled.h4``;
+	@keyframes placeholderShimmer {
+		0% {
+			background-position: -40rem 0;
+		}
+		100% {
+			background-position: 40rem 0;
+		}
+	}
+`;
 
-export const FavIcon = styled.div``;
+export const Content = styled.div`
+	${({ theme }) => css`
+		position: relative;
+		padding: ${theme.spacings.xsmall};
+		background-color: ${theme.colors.white};
+	`}
+`;
 
-export const Price = styled.div``;
+export const Info = styled.div`
+	${() => css`
+		max-width: calc(100% - 2.6rem);
+	`}
+`;
+
+export const Title = styled.h3`
+	${({ theme }) => css`
+		color: ${theme.colors.black};
+		font-size: ${theme.font.sizes.medium};
+		font-weight: ${theme.font.bold};
+	`}
+`;
+
+export const Subtitle = styled.h4`
+	${({ theme }) => css`
+		color: ${theme.colors.gray};
+		font-size: ${theme.font.sizes.small};
+		font-weight: ${theme.font.normal};
+	`}
+`;
+
+export const FavIcon = styled.div`
+	${({ theme }) => css`
+		width: 2.4rem;
+		height: 2.4rem;
+		position: absolute;
+		top: ${theme.spacings.xsmall};
+		right: ${theme.spacings.xsmall};
+		cursor: pointer;
+
+		svg {
+			color: ${theme.colors.primary};
+		}
+	`}
+`;
+
+export const BuyBox = styled.div`
+	${() => css`
+		display: flex;
+		justify-content: flex-end;
+	`}
+`;
+
+export const Price = styled.div`
+	${({ theme }) => css`
+		padding: calc(${theme.spacings.xxsmall} / 2) ${theme.spacings.xxsmall};
+		background-color: ${theme.colors.secondary};
+		color: ${theme.colors.white};
+		font-size: ${theme.font.sizes.small};
+		font-weight: ${theme.font.bold};
+		border-radius: ${theme.border.radius};
+		cursor: pointer;
+	`}
+`;
