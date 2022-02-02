@@ -67,4 +67,24 @@ describe("<GameCard />", () => {
 
 		expect(onFavMock).toBeCalled();
 	});
+
+	it("should render Ribbon to GameCard if prop is passed", () => {
+		renderWithTheme(
+			<GameCard
+				{...mockGameCard}
+				ribbonText="Best seller"
+				ribbonSize="medium"
+				ribbonColor="primary"
+			/>,
+		);
+
+		const ribbon = screen.getByText(/Best seller/i);
+
+		expect(ribbon).toBeInTheDocument();
+		expect(ribbon).toHaveStyle({
+			height: "3.3rem",
+			fontSize: "1.4rem",
+			backgroundColor: "#F231A5",
+		});
+	});
 });
