@@ -1,4 +1,4 @@
-import { screen } from "@testing-library/react";
+import { fireEvent, screen } from "@testing-library/react";
 
 import { renderWithTheme } from "utils/tests/helpers";
 
@@ -49,5 +49,22 @@ describe("<GameCard />", () => {
 			textDecoration: "line-through",
 			color: "#8F8F8F",
 		});
+	});
+
+	it("should render favorite icon checked if prop is passed", () => {
+		renderWithTheme(<GameCard {...mockGameCard} favorite />);
+
+		expect(screen.queryByLabelText(/Add to wishlist/i)).not.toBeInTheDocument();
+		expect(screen.getByLabelText(/Remove from wishlist/i)).toBeInTheDocument();
+	});
+
+	it("should call onFav method when favorite button is clicked", () => {
+		const onFavMock = jest.fn();
+
+		renderWithTheme(<GameCard {...mockGameCard} onFav={onFavMock} />);
+
+		fireEvent.click(screen.getByLabelText(/Add to wishlist/i));
+
+		expect(onFavMock).toBeCalled();
 	});
 });
