@@ -1,4 +1,6 @@
-import { FavoriteBorder } from "@styled-icons/material-outlined";
+import { FavoriteBorder, AddShoppingCart } from "@styled-icons/material-outlined";
+
+import { Button } from "components/Button";
 
 import * as S from "./styles";
 
@@ -26,6 +28,7 @@ export const GameCard = ({ img, title, subtitle, price }: GameCardProps) => {
 
 				<S.BuyBox>
 					<S.Price>{price}</S.Price>
+					<Button icon={<AddShoppingCart />} size="small" />
 				</S.BuyBox>
 			</S.Content>
 		</S.Wrapper>

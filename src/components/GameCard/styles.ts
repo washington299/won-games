@@ -87,6 +87,7 @@ export const BuyBox = styled.div`
 export const Price = styled.div`
 	${({ theme }) => css`
 		padding: calc(${theme.spacings.xxsmall} / 2) ${theme.spacings.xxsmall};
+		margin-right: calc(${theme.spacings.xxsmall} / 2);
 		background-color: ${theme.colors.secondary};
 		color: ${theme.colors.white};
 		font-size: ${theme.font.sizes.small};
