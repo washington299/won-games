@@ -25,3 +25,11 @@ export const WithPromotionalPrice: Story<GameCardProps> = args => <GameCard {...
 WithPromotionalPrice.args = {
 	promotionalPrice: "R$ 150,00",
 };
+
+export const WithRibbon: Story<GameCardProps> = args => <GameCard {...args} />;
+
+WithRibbon.args = {
+	ribbonText: "Best seller",
+	ribbonColor: "primary",
+	ribbonSize: "medium",
+};

@@ -5,6 +5,7 @@ export const Wrapper = styled.article`
 		width: 30rem;
 		display: flex;
 		flex-direction: column;
+		position: relative;
 	`}
 `;
 

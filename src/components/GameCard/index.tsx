@@ -1,6 +1,7 @@
 import { FavoriteBorder, Favorite, AddShoppingCart } from "@styled-icons/material-outlined";
 
 import { Button } from "components/Button";
+import { Ribbon, RibbonColors, RibbonSizes } from "components/Ribbon";
 
 import * as S from "./styles";
 
@@ -11,6 +12,9 @@ export type GameCardProps = {
 	price: string;
 	promotionalPrice?: string;
 	favorite?: boolean;
+	ribbonText?: string;
+	ribbonColor?: RibbonColors;
+	ribbonSize?: RibbonSizes;
 	onFav?: () => void;
 };
 
@@ -21,10 +25,19 @@ export const GameCard = ({
 	price,
 	promotionalPrice,
 	favorite = false,
+	ribbonText,
+	ribbonColor,
+	ribbonSize,
 	onFav,
 }: GameCardProps) => {
 	return (
 		<S.Wrapper>
+			{!!ribbonText && (
+				<Ribbon bgColor={ribbonColor} size={ribbonSize}>
+					{ribbonText}
+				</Ribbon>
+			)}
+
 			<S.ImageBox>
 				<img src={img} alt={title} />
 			</S.ImageBox>
