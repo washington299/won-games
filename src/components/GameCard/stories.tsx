@@ -14,3 +14,9 @@ export default {
 } as Meta;
 
 export const Default: Story<GameCardProps> = args => <GameCard {...args} />;
+
+export const WithPromotionalPrice: Story<GameCardProps> = args => <GameCard {...args} />;
+
+WithPromotionalPrice.args = {
+	promotionalPrice: "R$ 150,00",
+};
