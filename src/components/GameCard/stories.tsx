@@ -11,6 +11,11 @@ export default {
 		subtitle: "Other ocean",
 		price: "R$ 215,00",
 	},
+	argTypes: {
+		onFav: {
+			action: "clicked",
+		},
+	},
 } as Meta;
 
 export const Default: Story<GameCardProps> = args => <GameCard {...args} />;
