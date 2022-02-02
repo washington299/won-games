@@ -9,9 +9,10 @@ export type GameCardProps = {
 	title: string;
 	subtitle: string;
 	price: string;
+	promotionalPrice?: string;
 };
 
-export const GameCard = ({ img, title, subtitle, price }: GameCardProps) => {
+export const GameCard = ({ img, title, subtitle, price, promotionalPrice }: GameCardProps) => {
 	return (
 		<S.Wrapper>
 			<S.ImageBox>
@@ -27,7 +28,8 @@ export const GameCard = ({ img, title, subtitle, price }: GameCardProps) => {
 				</S.FavIcon>
 
 				<S.BuyBox>
-					<S.Price>{price}</S.Price>
+					{!!promotionalPrice && <S.Price isPromotional={!!promotionalPrice}>{price}</S.Price>}
+					<S.Price>{promotionalPrice || price}</S.Price>
 					<Button icon={<AddShoppingCart />} size="small" />
 				</S.BuyBox>
 			</S.Content>
