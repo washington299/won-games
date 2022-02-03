@@ -18,15 +18,27 @@ export default {
 	},
 } as Meta;
 
-export const Default: Story<GameCardProps> = args => <GameCard {...args} />;
+export const Default: Story<GameCardProps> = args => (
+	<div style={{ maxWidth: "30rem" }}>
+		<GameCard {...args} />
+	</div>
+);
 
-export const WithPromotionalPrice: Story<GameCardProps> = args => <GameCard {...args} />;
+export const WithPromotionalPrice: Story<GameCardProps> = args => (
+	<div style={{ maxWidth: "30rem" }}>
+		<GameCard {...args} />
+	</div>
+);
 
 WithPromotionalPrice.args = {
 	promotionalPrice: "R$ 150,00",
 };
 
-export const WithRibbon: Story<GameCardProps> = args => <GameCard {...args} />;
+export const WithRibbon: Story<GameCardProps> = args => (
+	<div style={{ maxWidth: "30rem" }}>
+		<GameCard {...args} />
+	</div>
+);
 
 WithRibbon.args = {
 	ribbonText: "Best seller",
