@@ -5,6 +5,7 @@ export const Wrapper = styled.article`
 		display: flex;
 		flex-direction: column;
 		position: relative;
+		height: 100%;
 	`}
 `;
 
@@ -34,6 +35,10 @@ export const ImageBox = styled.div`
 
 export const Content = styled.div`
 	${({ theme }) => css`
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		height: 100%;
 		position: relative;
 		padding: ${theme.spacings.xsmall};
 		background-color: ${theme.colors.white};
