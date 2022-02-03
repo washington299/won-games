@@ -6,7 +6,7 @@ import { Slider } from ".";
 
 describe("<Slider />", () => {
 	it("should render correctly", () => {
-		render(
+		const { container } = render(
 			<Slider settings={{ slidesToShow: 1, infinite: false }}>
 				<p>Item 1</p>
 				<p>Item 2</p>
@@ -15,5 +15,7 @@ describe("<Slider />", () => {
 
 		expect(screen.getByText(/Item 1/i).parentElement?.parentElement).toHaveClass("slick-slide");
 		expect(screen.getByText(/Item 2/i).parentElement?.parentElement).toHaveClass("slick-slide");
+
+		expect(container.firstChild).toMatchSnapshot();
 	});
 });
