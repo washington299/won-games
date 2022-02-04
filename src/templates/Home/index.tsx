@@ -35,52 +35,59 @@ export const HomeTemplate = ({
 	freeGames,
 }: HomeTemplateProps) => {
 	return (
-		<S.Wrapper>
+		<section>
 			<Container>
 				<Menu />
-
-				<BannerSlider items={banners} />
+				<S.BannerSection>
+					<BannerSlider items={banners} />
+				</S.BannerSection>
 			</Container>
+
+			<S.SectionNews>
+				<Container>
+					<Heading lineLeft lineColor="secondary" color="black">
+						News
+					</Heading>
+
+					<GameCardSlider items={newGames} />
+				</Container>
+			</S.SectionNews>
 
 			<Container>
-				<Heading lineLeft lineColor="secondary" color="black">
-					News
-				</Heading>
+				<S.SectionMostPopular>
+					<Heading lineLeft lineColor="secondary">
+						Most popular
+					</Heading>
 
-				<GameCardSlider items={newGames} />
+					<Highlight {...mostPopularHighlight} />
+					<GameCardSlider items={mostPopularGames} arrowColor="white" />
+				</S.SectionMostPopular>
+
+				<S.SectionUpcoming>
+					<Heading lineLeft lineColor="secondary">
+						Up coming
+					</Heading>
+
+					<GameCardSlider items={upcomingGames} arrowColor="white" />
+					<Highlight {...upcomingHighlight} />
+					<GameCardSlider items={upcomingMoreGames} arrowColor="white" />
+				</S.SectionUpcoming>
+
+				<S.SectionFreeGames>
+					<Heading lineLeft lineColor="secondary">
+						Free games
+					</Heading>
+
+					<Highlight {...freeGamesHighlight} />
+					<GameCardSlider items={freeGames} arrowColor="white" />
+				</S.SectionFreeGames>
 			</Container>
 
-			<Container>
-				<Heading lineLeft lineColor="secondary">
-					Most popular
-				</Heading>
-
-				<Highlight {...mostPopularHighlight} />
-				<GameCardSlider items={mostPopularGames} arrowColor="white" />
-			</Container>
-
-			<Container>
-				<Heading lineLeft lineColor="secondary">
-					Upcoming
-				</Heading>
-
-				<GameCardSlider items={upcomingGames} arrowColor="white" />
-				<Highlight {...upcomingHighlight} />
-				<GameCardSlider items={upcomingMoreGames} arrowColor="white" />
-			</Container>
-
-			<Container>
-				<Heading lineLeft lineColor="secondary">
-					Free games
-				</Heading>
-
-				<Highlight {...freeGamesHighlight} />
-				<GameCardSlider items={freeGames} arrowColor="white" />
-			</Container>
-
-			<Container>
-				<Footer />
-			</Container>
-		</S.Wrapper>
+			<S.SectionFooter>
+				<Container>
+					<Footer />
+				</Container>
+			</S.SectionFooter>
+		</section>
 	);
 };
