@@ -30,12 +30,21 @@ describe("<HomeTemplate />", () => {
 		expect(screen.getByRole("heading", { name: /Contact/i })).toBeInTheDocument();
 	});
 
-	it("should render sections correctly", () => {
+	it("should render sections headings correctly", () => {
 		renderWithTheme(<HomeTemplate {...props} />);
 
 		expect(screen.getByRole("heading", { name: /News/i })).toBeInTheDocument();
 		expect(screen.getByRole("heading", { name: /Most popular/i })).toBeInTheDocument();
-		expect(screen.getByRole("heading", { name: /Upcoming/i })).toBeInTheDocument();
+		expect(screen.getByRole("heading", { name: /Up coming/i })).toBeInTheDocument();
 		expect(screen.getByRole("heading", { name: /Free games/i })).toBeInTheDocument();
+	});
+
+	it("should render section elements", () => {
+		const { container } = renderWithTheme(<HomeTemplate {...props} />);
+
+		// Banner and GameCards -Banner 3 slides, 5 sections with 6 cards each.
+		expect(container.querySelectorAll(".slick-slide")).toHaveLength(33);
+		// 3 Highlights
+		expect(screen.getAllByText("Read Dead it’s back")).toHaveLength(3);
 	});
 });
