@@ -1,19 +1,37 @@
+import "match-media-mock";
+
 import { screen } from "@testing-library/react";
 
 import { renderWithTheme } from "utils/tests/helpers";
 
+import { items as bannersMock } from "components/BannerSlider/mock";
+import { items as gamesMock } from "components/GameCardSlider/mock";
+import { item as highlightMock } from "components/Highlight/mock";
+
 import { HomeTemplate } from ".";
+
+const props = {
+	banners: bannersMock,
+	newGames: gamesMock,
+	mostPopularHighlight: highlightMock,
+	mostPopularGames: gamesMock,
+	upcomingGames: gamesMock,
+	upcomingHighlight: highlightMock,
+	upcomingMoreGames: gamesMock,
+	freeGamesHighlight: highlightMock,
+	freeGames: gamesMock,
+};
 
 describe("<HomeTemplate />", () => {
 	it("should render Menu and Footer correctly", () => {
-		renderWithTheme(<HomeTemplate />);
+		renderWithTheme(<HomeTemplate {...props} />);
 
 		expect(screen.getByLabelText(/Open menu/i)).toBeInTheDocument();
 		expect(screen.getByRole("heading", { name: /Contact/i })).toBeInTheDocument();
 	});
 
 	it("should render sections correctly", () => {
-		renderWithTheme(<HomeTemplate />);
+		renderWithTheme(<HomeTemplate {...props} />);
 
 		expect(screen.getByRole("heading", { name: /News/i })).toBeInTheDocument();
 		expect(screen.getByRole("heading", { name: /Most popular/i })).toBeInTheDocument();
