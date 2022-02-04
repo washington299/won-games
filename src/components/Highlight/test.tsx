@@ -3,19 +3,13 @@ import { screen } from "@testing-library/react";
 import { renderWithTheme } from "utils/tests/helpers";
 
 import { Highlight } from ".";
-import * as S from "./styles";
+import { item } from "./mock";
 
-const highlightMock = {
-	title: "Read Dead it’s back",
-	subtitle: "Come see John’s new adventures",
-	backgroundImage: "/red-dead-background.jpg",
-	buttonLabel: "Buy now",
-	buttonLink: "/games/red-dead",
-};
+import * as S from "./styles";
 
 describe("<Highlight />", () => {
 	it("should render correctly", () => {
-		renderWithTheme(<Highlight {...highlightMock} />);
+		renderWithTheme(<Highlight {...item} />);
 
 		expect(screen.getByRole("heading", { name: /Read Dead it’s back/i })).toBeInTheDocument();
 		expect(
@@ -28,22 +22,22 @@ describe("<Highlight />", () => {
 	});
 
 	it("should render background image correctly", () => {
-		const { container } = renderWithTheme(<Highlight {...highlightMock} />);
+		const { container } = renderWithTheme(<Highlight {...item} />);
 
 		expect(container.firstChild).toHaveStyle({ backgroundImage: "url(/red-dead-background.jpg)" });
 	});
 
 	it("should render float image correctly", () => {
-		renderWithTheme(<Highlight {...highlightMock} floatImage="/red-dead-img.png" />);
+		renderWithTheme(<Highlight {...item} floatImage="/red-dead-img.png" />);
 
-		expect(screen.getByRole("img", { name: highlightMock.title })).toHaveAttribute(
+		expect(screen.getByRole("img", { name: item.title })).toHaveAttribute(
 			"src",
 			"/red-dead-img.png",
 		);
 	});
 
 	it("should render Highlight on right side by default", () => {
-		const { container } = renderWithTheme(<Highlight {...highlightMock} />);
+		const { container } = renderWithTheme(<Highlight {...item} />);
 
 		// eslint-disable-next-line prettier/prettier
 		expect(container.firstChild).toHaveStyleRule('grid-template-areas', "'floatImage content'");
@@ -53,7 +47,7 @@ describe("<Highlight />", () => {
 	});
 
 	it("should render Highlight on left side if prop is passed", () => {
-		const { container } = renderWithTheme(<Highlight {...highlightMock} alignment="left" />);
+		const { container } = renderWithTheme(<Highlight {...item} alignment="left" />);
 
 		// eslint-disable-next-line prettier/prettier
 		expect(container.firstChild).toHaveStyleRule('grid-template-areas', "'content floatImage'");
