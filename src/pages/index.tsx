@@ -1,7 +1,7 @@
-import { Main } from "components/Main";
+import { HomeTemplate } from "templates/Home";
 
-const Home = () => {
-	return <Main />;
+const Index = () => {
+	return <HomeTemplate />;
 };
 
-export default Home;
+export default Index;
