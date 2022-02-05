@@ -55,6 +55,24 @@ describe("<Button />", () => {
 		expect(screen.getByTestId("icon")).toBeInTheDocument();
 	});
 
+	it("should render a minimal button when prop is passed", () => {
+		renderWithTheme(
+			<Button icon={<AddShoppingCart data-testid="icon" />} minimal>
+				My button
+			</Button>,
+		);
+
+		expect(screen.getByRole("button", { name: /My button/i })).toHaveStyle({
+			background: "none",
+			color: "#F231A5",
+		});
+		expect(screen.getByRole("button", { name: /My button/i })).toHaveStyleRule(
+			"background",
+			"none",
+			{ modifier: ":hover" },
+		);
+	});
+
 	it("should render button as a link", () => {
 		renderWithTheme(
 			<Button as="a" href="/link" size="large">
