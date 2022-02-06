@@ -49,4 +49,22 @@ describe("<Checkbox />", () => {
 		expect(onCheck).toHaveBeenCalledTimes(1);
 		expect(onCheck).toHaveBeenCalledWith(true);
 	});
+
+	it("should mark checkbox as checked by default if prop is passed", () => {
+		const onCheck = jest.fn();
+
+		renderWithTheme(
+			<Checkbox label="My checkbox" labelFor="my-checkbox" onCheck={onCheck} isChecked />,
+		);
+
+		const checkbox = screen.getByLabelText(/My checkbox/i);
+
+		expect(checkbox).toBeChecked();
+
+		fireEvent.click(checkbox);
+
+		expect(onCheck).toHaveBeenCalledTimes(1);
+		expect(onCheck).toHaveBeenCalledWith(false);
+		expect(checkbox).not.toBeChecked();
+	});
 });
