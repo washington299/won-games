@@ -6,6 +6,9 @@ export default {
 	title: "Checkbox",
 	component: Checkbox,
 	argTypes: {
+		isChecked: {
+			control: { type: "" },
+		},
 		onCheck: {
 			action: "checked",
 		},
@@ -13,3 +16,5 @@ export default {
 } as Meta;
 
 export const Default: Story = args => <Checkbox {...args} />;
+
+export const DefaultChecked: Story = args => <Checkbox {...args} isChecked />;
