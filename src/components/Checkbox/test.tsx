@@ -1,4 +1,5 @@
 import { fireEvent, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 import { renderWithTheme } from "utils/tests/helpers";
 
@@ -66,5 +67,19 @@ describe("<Checkbox />", () => {
 		expect(onCheck).toHaveBeenCalledTimes(1);
 		expect(onCheck).toHaveBeenCalledWith(false);
 		expect(checkbox).not.toBeChecked();
+	});
+
+	it("should make checkbox accessible", () => {
+		renderWithTheme(<Checkbox label="My checkbox" labelFor="my-checkbox" />);
+
+		expect(document.body).toHaveFocus();
+
+		userEvent.tab();
+
+		expect(screen.getByLabelText(/My checkbox/i)).toHaveFocus();
+
+		userEvent.click(screen.getByLabelText(/My checkbox/i));
+
+		expect(screen.getByLabelText(/My checkbox/i)).toBeChecked();
 	});
 });
