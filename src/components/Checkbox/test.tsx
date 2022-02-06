@@ -1,4 +1,4 @@
-import { screen } from "@testing-library/react";
+import { fireEvent, screen } from "@testing-library/react";
 
 import { renderWithTheme } from "utils/tests/helpers";
 
@@ -35,5 +35,18 @@ describe("<Checkbox />", () => {
 		renderWithTheme(<Checkbox label="My checkbox" labelFor="my-checkbox" labelColor="white" />);
 
 		expect(screen.getByText(/My checkbox/i)).toHaveStyle({ color: "#FAFAFA" });
+	});
+
+	it("should dispatch onCheck when checkbox is changed", () => {
+		const onCheck = jest.fn();
+
+		renderWithTheme(<Checkbox label="My checkbox" labelFor="my-checkbox" onCheck={onCheck} />);
+
+		expect(onCheck).not.toHaveBeenCalled();
+
+		fireEvent.click(screen.getByLabelText(/My checkbox/i));
+
+		expect(onCheck).toHaveBeenCalledTimes(1);
+		expect(onCheck).toHaveBeenCalledWith(true);
 	});
 });
