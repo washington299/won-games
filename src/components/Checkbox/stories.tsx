@@ -6,9 +6,6 @@ export default {
 	title: "Checkbox",
 	component: Checkbox,
 	argTypes: {
-		isChecked: {
-			control: { type: "" },
-		},
 		onCheck: {
 			action: "checked",
 		},
@@ -17,4 +14,16 @@ export default {
 
 export const Default: Story = args => <Checkbox {...args} />;
 
-export const DefaultChecked: Story = args => <Checkbox {...args} isChecked />;
+export const MultipleCheckbox: Story = args => (
+	<>
+		<div style={{ padding: 10 }}>
+			<Checkbox {...args} name="category" label="Action" labelFor="action" isChecked />
+		</div>
+		<div style={{ padding: 10 }}>
+			<Checkbox {...args} name="category" label="Adventure" labelFor="adventure" />
+		</div>
+		<div style={{ padding: 10 }}>
+			<Checkbox {...args} name="category" label="Strategy" labelFor="strategy" />
+		</div>
+	</>
+);
