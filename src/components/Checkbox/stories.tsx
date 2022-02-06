@@ -14,6 +14,11 @@ export default {
 
 export const Default: Story = args => <Checkbox {...args} />;
 
+Default.args = {
+	label: "Action",
+	labelFor: "action",
+};
+
 export const MultipleCheckbox: Story = args => (
 	<>
 		<div style={{ padding: 10 }}>
