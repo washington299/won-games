@@ -1,4 +1,5 @@
 import { screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 import { renderWithTheme } from "utils/tests/helpers";
 
@@ -29,5 +30,18 @@ describe("<Radio />", () => {
 		renderWithTheme(<Radio label="My label" labelFor="my-label" labelColor="white" />);
 
 		expect(screen.getByText(/My label/i)).toHaveStyle({ color: "#FAFAFA" });
+	});
+
+	it("should dispatch onCheck when Radio is checked", () => {
+		const onCheck = jest.fn();
+
+		renderWithTheme(<Radio label="My label" labelFor="my-label" value="value" onCheck={onCheck} />);
+
+		expect(onCheck).not.toHaveBeenCalled();
+
+		userEvent.click(screen.getByRole("radio"));
+
+		expect(onCheck).toHaveBeenCalledTimes(1);
+		expect(onCheck).toHaveBeenCalledWith("value");
 	});
 });
