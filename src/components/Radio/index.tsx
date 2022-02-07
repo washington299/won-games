@@ -9,7 +9,7 @@ export type RadioProps = {
 export const Radio = ({ label = "", labelFor = "", labelColor = "black" }: RadioProps) => {
 	return (
 		<S.Wrapper>
-			<input type="radio" id={labelFor} />
+			<S.Input type="radio" id={labelFor} />
 			{!!label && (
 				<S.Label htmlFor={labelFor} labelColor={labelColor}>
 					{label}
