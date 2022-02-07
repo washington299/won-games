@@ -44,4 +44,10 @@ describe("<Radio />", () => {
 		expect(onCheck).toHaveBeenCalledTimes(1);
 		expect(onCheck).toHaveBeenCalledWith("value");
 	});
+
+	it("should render Radio checked if prop is passed", () => {
+		renderWithTheme(<Radio label="My label" labelFor="my-label" defaultChecked />);
+
+		expect(screen.getByRole("radio")).toBeChecked();
+	});
 });
