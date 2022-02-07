@@ -24,3 +24,17 @@ DefaultChecked.args = {
 	labelFor: "label",
 	defaultChecked: true,
 };
+
+export const MultipleRadio: Story<RadioProps> = args => (
+	<>
+		<div style={{ padding: 10 }}>
+			<Radio {...args} name="counts" label="First" labelFor="first" value="first" defaultChecked />
+		</div>
+		<div style={{ padding: 10 }}>
+			<Radio {...args} name="counts" label="Second" labelFor="second" value="second" />
+		</div>
+		<div style={{ padding: 10 }}>
+			<Radio {...args} name="counts" label="Third" labelFor="third" value="third" />
+		</div>
+	</>
+);
