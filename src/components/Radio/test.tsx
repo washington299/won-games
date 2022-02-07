@@ -50,4 +50,20 @@ describe("<Radio />", () => {
 
 		expect(screen.getByRole("radio")).toBeChecked();
 	});
+
+	it("should make Radio accessible", () => {
+		renderWithTheme(<Radio label="My label" labelFor="my-label" />);
+
+		const radio = screen.getByRole("radio");
+
+		expect(document.body).toHaveFocus();
+
+		userEvent.tab();
+
+		expect(radio).toHaveFocus();
+
+		userEvent.click(radio);
+
+		expect(radio).toBeChecked();
+	});
 });
