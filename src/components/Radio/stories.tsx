@@ -16,3 +16,11 @@ Default.args = {
 	label: "Label",
 	labelFor: "label",
 };
+
+export const DefaultChecked: Story<RadioProps> = args => <Radio {...args} />;
+
+DefaultChecked.args = {
+	label: "Label",
+	labelFor: "label",
+	defaultChecked: true,
+};
