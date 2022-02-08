@@ -1,10 +1,15 @@
 import { Story, Meta } from "@storybook/react";
 
-import { TextField } from ".";
+import { TextField, TextFieldProps } from ".";
 
 export default {
 	title: "TextField",
 	component: TextField,
 } as Meta;
 
-export const Default: Story = args => <TextField {...args} />;
+export const Default: Story<TextFieldProps> = args => <TextField {...args} />;
+
+Default.args = {
+	label: "Label",
+	labelFor: "label",
+};
