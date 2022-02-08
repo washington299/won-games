@@ -1,4 +1,5 @@
 import { screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 import { renderWithTheme } from "utils/tests/helpers";
 
@@ -17,5 +18,20 @@ describe("<TextField />", () => {
 
 		expect(screen.getByText(/label/i)).toBeInTheDocument();
 		expect(screen.getByText(/label/i)).toHaveAttribute("for", "label");
+	});
+
+	it("should change input value and call onInput correctly", () => {
+		const onInput = jest.fn();
+
+		renderWithTheme(<TextField label="Label" labelFor="label" onInput={onInput} />);
+
+		const input = screen.getByRole("textbox");
+		const text = "This is a text";
+
+		userEvent.type(input, text);
+
+		expect(input).toHaveValue(text);
+		expect(onInput).toHaveBeenCalledTimes(text.length);
+		expect(onInput).toHaveBeenCalledWith(text);
 	});
 });
