@@ -21,8 +21,10 @@ export const TextField = ({ label, labelFor = "", onInput, initialValue = "" }: 
 
 	return (
 		<S.Wrapper>
-			{!!label && <label htmlFor={labelFor}>{label}</label>}
-			<input id={labelFor} type="text" value={value} onChange={onChange} />
+			{!!label && <S.Label htmlFor={labelFor}>{label}</S.Label>}
+			<S.InputWrapper>
+				<S.Input id={labelFor} type="text" value={value} onChange={onChange} />
+			</S.InputWrapper>
 		</S.Wrapper>
 	);
 };
