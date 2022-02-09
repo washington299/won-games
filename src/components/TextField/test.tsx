@@ -40,6 +40,13 @@ describe("<TextField />", () => {
 		expect(screen.getByTestId(/icon/i).parentElement).toHaveStyle({ order: 1 });
 	});
 
+	it("should render disabled TextField if prop is passed", () => {
+		renderWithTheme(<TextField disabled />);
+
+		expect(screen.getByRole("textbox")).toBeDisabled();
+		expect(screen.getByRole("textbox")).toHaveStyle({ cursor: "not-allowed" });
+	});
+
 	it("should change input value and call onInput correctly", () => {
 		const onInput = jest.fn();
 
