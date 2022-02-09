@@ -20,6 +20,12 @@ describe("<TextField />", () => {
 		expect(screen.getByText(/label/i)).toHaveAttribute("for", "label");
 	});
 
+	it("should render TextField with correct placeholder", () => {
+		renderWithTheme(<TextField label="Label" labelFor="label" placeholder="email@email.com" />);
+
+		expect(screen.getByPlaceholderText(/email@email.com/i)).toBeInTheDocument();
+	});
+
 	it("should change input value and call onInput correctly", () => {
 		const onInput = jest.fn();
 
