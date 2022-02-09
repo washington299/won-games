@@ -1,5 +1,6 @@
 import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { Message as MessageIcon } from "@styled-icons/material-outlined";
 
 import { renderWithTheme } from "utils/tests/helpers";
 
@@ -24,6 +25,12 @@ describe("<TextField />", () => {
 		renderWithTheme(<TextField label="Label" labelFor="label" placeholder="email@email.com" />);
 
 		expect(screen.getByPlaceholderText(/email@email.com/i)).toBeInTheDocument();
+	});
+
+	it("should render icon correctly", () => {
+		renderWithTheme(<TextField icon={<MessageIcon data-testid="icon" />} />);
+
+		expect(screen.getByTestId(/icon/i)).toBeInTheDocument();
 	});
 
 	it("should change input value and call onInput correctly", () => {
