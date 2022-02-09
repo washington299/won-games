@@ -34,4 +34,10 @@ describe("<TextField />", () => {
 		expect(onInput).toHaveBeenCalledTimes(text.length);
 		expect(onInput).toHaveBeenCalledWith(text);
 	});
+
+	it("should render input with initial values correctly", () => {
+		renderWithTheme(<TextField label="Label" labelFor="label" initialValue="initial value" />);
+
+		expect(screen.getByRole("textbox")).toHaveValue("initial value");
+	});
 });
