@@ -13,3 +13,11 @@ Default.args = {
 	label: "Label",
 	labelFor: "label",
 };
+
+export const WithInitialValue: Story<TextFieldProps> = args => <TextField {...args} />;
+
+WithInitialValue.args = {
+	label: "Label",
+	labelFor: "label",
+	initialValue: "initial value",
+};
