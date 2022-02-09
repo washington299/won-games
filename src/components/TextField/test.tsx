@@ -31,6 +31,13 @@ describe("<TextField />", () => {
 		renderWithTheme(<TextField icon={<MessageIcon data-testid="icon" />} />);
 
 		expect(screen.getByTestId(/icon/i)).toBeInTheDocument();
+		expect(screen.getByTestId(/icon/i).parentElement).toHaveStyle({ order: 0 });
+	});
+
+	it("should render icon in right position if prop is passed", () => {
+		renderWithTheme(<TextField icon={<MessageIcon data-testid="icon" />} iconPosition="right" />);
+
+		expect(screen.getByTestId(/icon/i).parentElement).toHaveStyle({ order: 1 });
 	});
 
 	it("should change input value and call onInput correctly", () => {
