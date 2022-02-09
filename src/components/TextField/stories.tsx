@@ -16,6 +16,7 @@ export const Default: Story<TextFieldProps> = args => (
 Default.args = {
 	label: "Label",
 	labelFor: "label",
+	placeholder: "email@email.com",
 };
 
 export const WithInitialValue: Story<TextFieldProps> = args => (
