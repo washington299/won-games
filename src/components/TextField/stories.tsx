@@ -25,17 +25,7 @@ Default.args = {
 	placeholder: "email@email.com",
 	initialValue: "",
 	disabled: false,
-};
-
-export const WithInitialValue: Story<TextFieldProps> = args => (
-	<div style={{ width: "30rem" }}>
-		<TextField {...args} />
-	</div>
-);
-
-WithInitialValue.args = {
-	...Default.args,
-	initialValue: "initial value",
+	error: "",
 };
 
 export const WithIcon: Story<TextFieldProps> = args => (
@@ -47,4 +37,16 @@ export const WithIcon: Story<TextFieldProps> = args => (
 WithIcon.args = {
 	...Default.args,
 	icon: <EmailIcon />,
+};
+
+export const WithError: Story<TextFieldProps> = args => (
+	<div style={{ width: "30rem" }}>
+		<TextField {...args} />
+	</div>
+);
+
+WithError.args = {
+	...Default.args,
+	icon: <EmailIcon />,
+	error: "Ops... something failed :(",
 };
