@@ -23,6 +23,8 @@ Default.args = {
 	label: "Label",
 	labelFor: "label",
 	placeholder: "email@email.com",
+	initialValue: "",
+	disabled: false,
 };
 
 export const WithInitialValue: Story<TextFieldProps> = args => (
@@ -32,8 +34,7 @@ export const WithInitialValue: Story<TextFieldProps> = args => (
 );
 
 WithInitialValue.args = {
-	label: "Label",
-	labelFor: "label",
+	...Default.args,
 	initialValue: "initial value",
 };
 
@@ -44,21 +45,6 @@ export const WithIcon: Story<TextFieldProps> = args => (
 );
 
 WithIcon.args = {
-	label: "Label",
-	labelFor: "label",
-	placeholder: "Email@email.com",
+	...Default.args,
 	icon: <EmailIcon />,
-};
-
-export const Disabled: Story<TextFieldProps> = args => (
-	<div style={{ width: "30rem" }}>
-		<TextField {...args} />
-	</div>
-);
-
-Disabled.args = {
-	label: "Label",
-	labelFor: "label",
-	placeholder: "email@email.com",
-	disabled: true,
 };
