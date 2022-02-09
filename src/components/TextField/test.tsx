@@ -46,4 +46,14 @@ describe("<TextField />", () => {
 
 		expect(screen.getByRole("textbox")).toHaveValue("initial value");
 	});
+
+	it("should TextField be accessible", () => {
+		renderWithTheme(<TextField label="Label" labelFor="label" />);
+
+		expect(document.body).toHaveFocus();
+
+		userEvent.tab();
+
+		expect(screen.getByRole("textbox")).toHaveFocus();
+	});
 });
