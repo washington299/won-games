@@ -27,6 +27,7 @@ export const InputWrapper = styled.div`
 export const Input = styled.input`
 	${({ theme }) => css`
 		width: 100%;
+		margin-left: ${theme.spacings.xxsmall};
 		padding: ${theme.spacings.xxsmall} 0;
 		color: ${theme.colors.black};
 		font-family: ${theme.font.family};
@@ -34,5 +35,17 @@ export const Input = styled.input`
 		background: transparent;
 		border: 0;
 		outline: none;
+	`}
+`;
+
+export const Icon = styled.div`
+	${({ theme }) => css`
+		width: 2.2rem;
+		display: flex;
+		color: ${theme.colors.gray};
+
+		& > svg {
+			width: 100%;
+		}
 	`}
 `;
