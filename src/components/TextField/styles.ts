@@ -1,5 +1,7 @@
 import styled, { css } from "styled-components";
 
+import { TextFieldProps } from ".";
+
 export const Wrapper = styled.div``;
 
 export const Label = styled.label`
@@ -24,11 +26,13 @@ export const InputWrapper = styled.div`
 	`}
 `;
 
-export const Input = styled.input`
-	${({ theme }) => css`
+type IconPositionProp = Pick<TextFieldProps, "iconPosition">;
+
+export const Input = styled.input<IconPositionProp>`
+	${({ theme, iconPosition }) => css`
 		width: 100%;
-		margin-left: ${theme.spacings.xxsmall};
 		padding: ${theme.spacings.xxsmall} 0;
+		padding-${iconPosition}: ${theme.spacings.xxsmall};
 		color: ${theme.colors.black};
 		font-family: ${theme.font.family};
 		font-size: ${theme.font.sizes.medium};
@@ -38,11 +42,12 @@ export const Input = styled.input`
 	`}
 `;
 
-export const Icon = styled.div`
-	${({ theme }) => css`
+export const Icon = styled.div<IconPositionProp>`
+	${({ theme, iconPosition }) => css`
 		width: 2.2rem;
 		display: flex;
 		color: ${theme.colors.gray};
+		order: ${iconPosition === "right" ? 1 : 0};
 
 		& > svg {
 			width: 100%;
