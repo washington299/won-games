@@ -4,7 +4,7 @@ import { Email as EmailIcon } from "@styled-icons/material-outlined";
 import { TextField, TextFieldProps } from ".";
 
 export default {
-	title: "TextField",
+	title: "Form/TextField",
 	component: TextField,
 	argTypes: {
 		icon: {
