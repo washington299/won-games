@@ -1,8 +1,29 @@
-import styled, { css } from "styled-components";
+import styled, { css, DefaultTheme } from "styled-components";
 
 import { TextFieldProps } from ".";
 
-export const Wrapper = styled.div``;
+type WrapperProps = Pick<TextFieldProps, "disabled">;
+
+const wrapperModifier = {
+	disabled: (theme: DefaultTheme) => css`
+		${Label},
+		${Icon},
+		${Input} {
+			color: ${theme.colors.gray};
+			cursor: not-allowed;
+
+			&::placeholder {
+				color: currentColor;
+			}
+		}
+	`,
+};
+
+export const Wrapper = styled.div<WrapperProps>`
+	${({ theme, disabled }) => css`
+		${disabled && wrapperModifier.disabled(theme)};
+	`}
+`;
 
 export const Label = styled.label`
 	${({ theme }) => css`
@@ -39,6 +60,10 @@ export const Input = styled.input<IconPositionProp>`
 		background: transparent;
 		border: 0;
 		outline: none;
+
+		&:disabled {
+			cursor: not-allowed;
+		}
 	`}
 `;
 

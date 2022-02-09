@@ -18,6 +18,7 @@ export const TextField = ({
 	initialValue = "",
 	icon,
 	iconPosition = "left",
+	disabled = false,
 	...props
 }: TextFieldProps) => {
 	const [value, setValue] = useState(initialValue);
@@ -30,7 +31,7 @@ export const TextField = ({
 	};
 
 	return (
-		<S.Wrapper>
+		<S.Wrapper disabled={disabled}>
 			{!!label && <S.Label htmlFor={labelFor}>{label}</S.Label>}
 			<S.InputWrapper>
 				{!!icon && <S.Icon iconPosition={iconPosition}>{icon}</S.Icon>}
@@ -38,6 +39,7 @@ export const TextField = ({
 					id={labelFor}
 					type="text"
 					value={value}
+					disabled={disabled}
 					onChange={onChange}
 					iconPosition={iconPosition}
 					{...props}

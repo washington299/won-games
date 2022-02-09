@@ -49,3 +49,16 @@ WithIcon.args = {
 	placeholder: "Email@email.com",
 	icon: <EmailIcon />,
 };
+
+export const Disabled: Story<TextFieldProps> = args => (
+	<div style={{ width: "30rem" }}>
+		<TextField {...args} />
+	</div>
+);
+
+Disabled.args = {
+	label: "Label",
+	labelFor: "label",
+	placeholder: "email@email.com",
+	disabled: true,
+};
