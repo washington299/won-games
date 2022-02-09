@@ -47,6 +47,14 @@ describe("<TextField />", () => {
 		expect(screen.getByRole("textbox")).toHaveStyle({ cursor: "not-allowed" });
 	});
 
+	it("should render TextField error correctly", () => {
+		renderWithTheme(
+			<TextField label="Label" labelFor="label" error="Ops... something failed :(" />,
+		);
+
+		expect(screen.getByText("Ops... something failed :(")).toBeInTheDocument();
+	});
+
 	it("should change input value and call onInput correctly", () => {
 		const onInput = jest.fn();
 
