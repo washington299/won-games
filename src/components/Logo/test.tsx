@@ -5,6 +5,12 @@ import { renderWithTheme } from "utils/tests/helpers";
 import { Logo } from ".";
 
 describe("<Logo />", () => {
+	it("should render with correct id", () => {
+		const { container } = renderWithTheme(<Logo id="myId" />);
+
+		expect(container.querySelector("#myId")).toBeInTheDocument();
+	});
+
 	it("should render white label by default", () => {
 		renderWithTheme(<Logo />);
 
