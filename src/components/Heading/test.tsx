@@ -56,6 +56,22 @@ describe("<Heading />", () => {
 		});
 	});
 
+	it("Should render a large size if prop is passed", () => {
+		renderWithTheme(<Heading size="large">Won games</Heading>);
+
+		expect(screen.getByRole("heading", { name: /Won games/i })).toHaveStyle({
+			fontSize: "2.8rem",
+		});
+	});
+
+	it("Should render a huge size if prop is passed", () => {
+		renderWithTheme(<Heading size="huge">Won games</Heading>);
+
+		expect(screen.getByRole("heading", { name: /Won games/i })).toHaveStyle({
+			fontSize: "5.2rem",
+		});
+	});
+
 	it("Should render line with primary color if prop is passed", () => {
 		renderWithTheme(
 			<Heading lineColor="primary" lineBottom lineLeft>
