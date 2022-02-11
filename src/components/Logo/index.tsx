@@ -1,12 +1,18 @@
 import * as S from "./styles";
 
 export type LogoProps = {
+	id?: string;
 	color?: "white" | "black";
 	size?: "normal" | "large";
 	hideLabel?: boolean;
 };
 
-export const Logo = ({ color = "white", size = "normal", hideLabel = false }: LogoProps) => {
+export const Logo = ({
+	id = "Logo",
+	color = "white",
+	size = "normal",
+	hideLabel = false,
+}: LogoProps) => {
 	return (
 		<S.Wrapper color={color} size={size} hideLabel={hideLabel}>
 			<svg
@@ -17,7 +23,7 @@ export const Logo = ({ color = "white", size = "normal", hideLabel = false }: Lo
 				aria-label="Won games"
 			>
 				<path
-					fill="url(#a)"
+					fill={`url(#${id})`}
 					d="M.055 15.227.019 35.872c-.008 4.796 5.336 7.663 9.327 5.004l20.596-13.722L50.49 40.947c3.982 2.672 9.335-.176 9.344-4.972l.034-19.997c.014-7.882-7.549-13.565-15.116-11.361l-.873.254a50.875 50.875 0 0 1-29.358-.27C7.351 2.366.068 7.716.055 15.226Z"
 				/>
 				<path
@@ -49,7 +55,7 @@ export const Logo = ({ color = "white", size = "normal", hideLabel = false }: Lo
 				/>
 				<defs>
 					<linearGradient
-						id="a"
+						id={`${id}`}
 						x1="29.159"
 						x2="30.155"
 						y1="-7.397"
