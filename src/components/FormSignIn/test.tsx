@@ -13,6 +13,6 @@ describe("<FormSignIn />", () => {
 		expect(screen.getByText(/Forgot your password?/i)).toBeInTheDocument();
 		expect(screen.getByRole("button", { name: /Sign in now/i })).toBeInTheDocument();
 		expect(screen.getByText("Don't have an account?")).toBeInTheDocument();
-		expect(screen.getByRole("link")).toHaveAttribute("href", "/sign-up");
+		expect(screen.getByRole("link", { name: /Sign up/i })).toHaveAttribute("href", "/sign-up");
 	});
 });
