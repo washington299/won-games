@@ -11,10 +11,13 @@ export const FormSignIn = () => {
 		<S.Wrapper>
 			<TextField type="email" name="email" placeholder="E-mail" icon={<Email />} />
 			<TextField type="password" name="password" placeholder="Password" icon={<Lock />} />
-			<S.ForgotPassword>Forgot your password?</S.ForgotPassword>
+
+			<S.ForgotPassword href="#">Forgot your password?</S.ForgotPassword>
+
 			<Button size="large" fullWidth>
 				Sign in now
 			</Button>
+
 			<S.FormLink>
 				Don&apos;t have an account?{" "}
 				<Link href="/sign-up">

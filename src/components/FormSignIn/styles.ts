@@ -1,7 +1,50 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { darken } from "polished";
 
-export const Wrapper = styled.main``;
+import * as TextFieldStyles from "components/TextField/styles";
+import * as ButtonStyles from "components/Button/styles";
 
-export const ForgotPassword = styled.a``;
+export const Wrapper = styled.main`
+	${({ theme }) => css`
+		${TextFieldStyles.Wrapper} {
+			margin: ${theme.spacings.xxsmall} 0;
+		}
 
-export const FormLink = styled.div``;
+		${ButtonStyles.Wrapper} {
+			margin: ${theme.spacings.xsmall} 0;
+		}
+	`}
+`;
+
+export const ForgotPassword = styled.a`
+	${({ theme }) => css`
+		display: block;
+		color: ${theme.colors.black};
+		font-size: ${theme.font.sizes.small};
+		text-align: right;
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	`}
+`;
+
+export const FormLink = styled.div`
+	${({ theme }) => css`
+		color: ${theme.colors.black};
+		font-size: ${theme.font.sizes.small};
+		text-align: center;
+
+		& > a {
+			text-decoration: none;
+			color: ${theme.colors.secondary};
+			border-bottom: 0.1rem solid ${theme.colors.secondary};
+
+			&:hover {
+				color: ${darken(0.1, theme.colors.secondary)};
+				border-bottom: 0.1rem solid ${darken(0.1, theme.colors.secondary)};
+			}
+		}
+	`}
+`;
