@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import media from "styled-media-query";
 
 import * as LogoStyles from "components/Logo/styles";
 import * as HeadingStyles from "components/Heading/styles";
@@ -6,8 +7,12 @@ import * as HeadingStyles from "components/Heading/styles";
 export const Wrapper = styled.main`
 	${() => css`
 		display: grid;
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: 1fr;
 		height: 100vh;
+
+		${media.greaterThan("medium")`
+			grid-template-columns: 1fr 1fr;
+		`};
 	`}
 `;
 
@@ -29,6 +34,10 @@ export const BannerBlock = styled.section`
 			left: 0;
 			background: rgba(0, 0, 0, 0.75);
 		}
+
+		${media.lessThan("medium")`
+			display: none;
+		`}
 	`}
 `;
 
@@ -74,6 +83,10 @@ export const Content = styled.section`
 export const ContentWrapper = styled.div`
 	${({ theme }) => css`
 		width: 30rem;
+
+		${media.greaterThan("medium")`
+			width: 36rem;
+		`}
 
 		${LogoStyles.Wrapper} {
 			margin: 0 auto ${theme.spacings.xxlarge};
