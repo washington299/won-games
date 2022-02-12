@@ -51,7 +51,10 @@ const wrapperModifier = {
 	`,
 };
 
-type WrapperProps = { hasIcon: boolean } & Pick<ButtonProps, "size" | "fullWidth" | "minimal">;
+export type WrapperProps = { hasIcon: boolean } & Pick<
+	ButtonProps,
+	"size" | "fullWidth" | "minimal"
+>;
 
 export const Wrapper = styled.button<WrapperProps>`
 	${({ theme, size, fullWidth, hasIcon, minimal }) => css`
