@@ -94,7 +94,7 @@ export const MenuFull = styled.nav<MenuFullProps>`
 		flex-direction: column;
 		justify-content: space-between;
 		height: 100vh;
-		position: absolute;
+		position: fixed;
 		top: 0;
 		bottom: 0;
 		right: 0;
@@ -102,6 +102,7 @@ export const MenuFull = styled.nav<MenuFullProps>`
 		overflow-y: hidden;
 		background-color: ${theme.colors.white};
 		transition: opacity 0.3s ease-in-out;
+		z-index: ${theme.layers.menu};
 
 		> svg {
 			width: 2.4rem;
