@@ -50,6 +50,10 @@ export const SectionNews = styled(Sections)`
 			padding-bottom: 10rem;
 			background-color: ${theme.colors.lightBg};
 			clip-path: polygon(0 0, 100% 15%, 100% 100%, 0 85%);
+
+			${HeadingStyles.Wrapper} {
+				color: ${theme.colors.black};
+			}
 		`}
 
 		${media.greaterThan("large")`

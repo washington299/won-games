@@ -45,7 +45,7 @@ export const HomeTemplate = ({
 
 			<S.SectionNews>
 				<Container>
-					<Heading lineLeft lineColor="secondary" color="black">
+					<Heading lineLeft lineColor="secondary" color="white">
 						News
 					</Heading>
 
