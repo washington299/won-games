@@ -74,13 +74,15 @@ export const Menu = ({ username = "" }: MenuProps) => {
 
 				{!username && (
 					<S.RegisterBox>
-						<Button fullWidth size="large">
-							Log in now
-						</Button>
+						<Link href="/sign-in">
+							<Button as="a" fullWidth size="large">
+								Sign in now
+							</Button>
+						</Link>
 						<span>or</span>
-						<S.CreateAccount href="#" title="Sign up">
-							Sign up
-						</S.CreateAccount>
+						<Link href="/sign-up">
+							<S.CreateAccount title="Sign up">Sign up</S.CreateAccount>
+						</Link>
 					</S.RegisterBox>
 				)}
 			</S.MenuFull>
