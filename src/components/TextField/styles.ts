@@ -75,6 +75,10 @@ export const Input = styled.input<IconPositionProp>`
 		&:disabled {
 			cursor: not-allowed;
 		}
+
+		&:-webkit-autofill {
+			-webkit-background-clip: text;
+		}
 	`}
 `;
 
