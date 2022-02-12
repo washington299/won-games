@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { Email, Lock } from "@styled-icons/material-outlined";
 
+import Button from "components/Button";
 import { TextField } from "components/TextField";
-import { Button } from "components/Button";
 import { FormLink, FormWrapper } from "components/FormStyles";
 
 import * as S from "./styles";

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useState } from "react";
 import { Menu2 as MenuIcon } from "@styled-icons/remix-line";
 import {
@@ -7,8 +8,8 @@ import {
 } from "@styled-icons/material-outlined";
 
 import { Logo } from "components/Logo";
-import { Button } from "components/Button";
 import { MediaMatch } from "components/MediaMatch";
+import Button from "components/Button";
 
 import * as S from "./styles";
 
@@ -33,7 +34,9 @@ export const Menu = ({ username = "" }: MenuProps) => {
 
 			<MediaMatch greaterThan="medium">
 				<S.MenuNav>
-					<S.MenuLink href="#">Home</S.MenuLink>
+					<Link href="/" passHref>
+						<S.MenuLink>Home</S.MenuLink>
+					</Link>
 					<S.MenuLink href="#">Store</S.MenuLink>
 				</S.MenuNav>
 			</MediaMatch>
@@ -46,7 +49,11 @@ export const Menu = ({ username = "" }: MenuProps) => {
 					<ShoppingCartIcon aria-label="Open shopping cart" />
 				</S.IconWrapper>
 				<MediaMatch greaterThan="medium">
-					<Button size="medium">Sign in</Button>
+					<Link href="/sign-in" passHref>
+						<Button size="medium" as="a">
+							Sign in
+						</Button>
+					</Link>
 				</MediaMatch>
 			</S.MenuGroup>
 

@@ -1,4 +1,4 @@
-import { Button } from "components/Button";
+import Button from "components/Button";
 import { Ribbon, RibbonSizes, RibbonColors } from "components/Ribbon";
 
 import * as S from "./styles";
