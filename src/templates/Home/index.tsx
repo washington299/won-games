@@ -1,12 +1,11 @@
 import { Container } from "components/Container";
-import { Heading } from "components/Heading";
 import { Menu } from "components/Menu";
 import { Footer } from "components/Footer";
 import { BannerSlider } from "components/BannerSlider";
-import { GameCardSlider } from "components/GameCardSlider";
-import { Highlight, HightlightProps } from "components/Highlight";
+import { Showcase } from "components/Showcase";
 
 import { BannerProps } from "components/Banner";
+import { HightlightProps } from "components/Highlight";
 import { GameCardProps } from "components/GameCard";
 
 import * as S from "./styles";
@@ -44,44 +43,15 @@ export const HomeTemplate = ({
 			</Container>
 
 			<S.SectionNews>
-				<Container>
-					<Heading lineLeft lineColor="secondary" color="white">
-						News
-					</Heading>
-
-					<GameCardSlider items={newGames} />
-				</Container>
+				<Showcase title="News" games={newGames} />
 			</S.SectionNews>
 
-			<Container>
-				<S.SectionMostPopular>
-					<Heading lineLeft lineColor="secondary">
-						Most popular
-					</Heading>
+			<Showcase title="Most popular" highlight={mostPopularHighlight} games={mostPopularGames} />
 
-					<Highlight {...mostPopularHighlight} />
-					<GameCardSlider items={mostPopularGames} arrowColor="white" />
-				</S.SectionMostPopular>
+			<Showcase title="Up coming" games={upcomingGames} />
+			<Showcase highlight={upcomingHighlight} games={upcomingMoreGames} />
 
-				<S.SectionUpcoming>
-					<Heading lineLeft lineColor="secondary">
-						Up coming
-					</Heading>
-
-					<GameCardSlider items={upcomingGames} arrowColor="white" />
-					<Highlight {...upcomingHighlight} />
-					<GameCardSlider items={upcomingMoreGames} arrowColor="white" />
-				</S.SectionUpcoming>
-
-				<S.SectionFreeGames>
-					<Heading lineLeft lineColor="secondary">
-						Free games
-					</Heading>
-
-					<Highlight {...freeGamesHighlight} />
-					<GameCardSlider items={freeGames} arrowColor="white" />
-				</S.SectionFreeGames>
-			</Container>
+			<Showcase title="Free games" highlight={freeGamesHighlight} games={freeGames} />
 
 			<S.SectionFooter>
 				<Container>
