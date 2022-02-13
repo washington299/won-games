@@ -1,6 +1,6 @@
+import { BaseTemplate } from "templates/Base";
+
 import { Container } from "components/Container";
-import { Menu } from "components/Menu";
-import { Footer } from "components/Footer";
 import { BannerSlider } from "components/BannerSlider";
 import { Showcase } from "components/Showcase";
 
@@ -34,9 +34,8 @@ export const HomeTemplate = ({
 	freeGames,
 }: HomeTemplateProps) => {
 	return (
-		<section>
+		<BaseTemplate>
 			<Container>
-				<Menu />
 				<S.BannerSection>
 					<BannerSlider items={banners} />
 				</S.BannerSection>
@@ -52,12 +51,6 @@ export const HomeTemplate = ({
 			<Showcase highlight={upcomingHighlight} games={upcomingMoreGames} />
 
 			<Showcase title="Free games" highlight={freeGamesHighlight} games={freeGames} />
-
-			<S.SectionFooter>
-				<Container>
-					<Footer />
-				</Container>
-			</S.SectionFooter>
-		</section>
+		</BaseTemplate>
 	);
 };
