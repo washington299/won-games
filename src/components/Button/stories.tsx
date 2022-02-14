@@ -1,7 +1,7 @@
 import { Story, Meta } from "@storybook/react";
 import { AddShoppingCart } from "@styled-icons/material-outlined";
 
-import { Button, ButtonProps } from ".";
+import Button, { ButtonProps } from ".";
 
 export default {
 	title: "Button",
