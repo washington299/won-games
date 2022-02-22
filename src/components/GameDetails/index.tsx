@@ -28,7 +28,7 @@ export const GameDetails = ({ platforms }: GameDetailsProps) => {
 
 			<S.Content>
 				<div>
-					<S.Label>Company</S.Label>
+					<S.Label>Developer</S.Label>
 					<S.Description>Gearbox Software</S.Description>
 				</div>
 
@@ -47,7 +47,7 @@ export const GameDetails = ({ platforms }: GameDetailsProps) => {
 				</div>
 
 				<div>
-					<S.Label>Editor</S.Label>
+					<S.Label>Publisher</S.Label>
 					<S.Description>2K</S.Description>
 				</div>
 
@@ -57,7 +57,7 @@ export const GameDetails = ({ platforms }: GameDetailsProps) => {
 				</div>
 
 				<div>
-					<S.Label>Genre</S.Label>
+					<S.Label>Genres</S.Label>
 					<S.Description>Action / Adventure</S.Description>
 				</div>
 			</S.Content>
