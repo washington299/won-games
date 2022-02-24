@@ -12,7 +12,7 @@ export const TextContent = ({ title, content }: TextContentProps) => {
 		<S.Wrapper>
 			{!!title && (
 				<Heading lineLeft lineColor="secondary">
-					Text content
+					{title}
 				</Heading>
 			)}
 
