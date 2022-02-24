@@ -7,6 +7,7 @@ import { GameDetails, GameDetailsProps } from ".";
 const props: GameDetailsProps = {
 	platforms: ["windows", "linux", "mac"],
 	releaseDate: "2020-11-21T23:00:00",
+	rating: "BR0",
 };
 
 describe("<GameDetails />", () => {
@@ -33,5 +34,17 @@ describe("<GameDetails />", () => {
 		renderWithTheme(<GameDetails {...props} />);
 
 		expect(screen.getByText("Nov 21, 2020")).toBeInTheDocument();
+	});
+
+	it("Should render free rating when BR0", () => {
+		renderWithTheme(<GameDetails {...props} />);
+
+		expect(screen.getByText(/Free/i)).toBeInTheDocument();
+	});
+
+	it("Should render 18+ rating when BR18", () => {
+		renderWithTheme(<GameDetails {...props} rating="BR18" />);
+
+		expect(screen.getByText(/18\+/i)).toBeInTheDocument();
 	});
 });
