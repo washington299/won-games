@@ -12,9 +12,10 @@ export type GameDetailsProps = {
 	platforms: Platform[];
 	releaseDate: string;
 	rating: Rating;
+	genres: string[];
 };
 
-export const GameDetails = ({ platforms, releaseDate, rating }: GameDetailsProps) => {
+export const GameDetails = ({ platforms, releaseDate, rating, genres }: GameDetailsProps) => {
 	const platformIcons = {
 		windows: <Windows size={18} title="Windows" />,
 		linux: <Linux size={18} title="Linux" />,
@@ -69,7 +70,7 @@ export const GameDetails = ({ platforms, releaseDate, rating }: GameDetailsProps
 
 				<div>
 					<S.Label>Genres</S.Label>
-					<S.Description>Action / Adventure</S.Description>
+					<S.Description>{genres.join(" / ")}</S.Description>
 				</div>
 			</S.Content>
 		</S.Wrapper>
