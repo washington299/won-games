@@ -9,13 +9,20 @@ type Platform = "windows" | "linux" | "mac";
 type Rating = "BR0" | "BR10" | "BR12" | "BR14" | "BR16" | "BR18";
 
 export type GameDetailsProps = {
+	developer: string;
 	platforms: Platform[];
 	releaseDate: string;
 	rating: Rating;
 	genres: string[];
 };
 
-export const GameDetails = ({ platforms, releaseDate, rating, genres }: GameDetailsProps) => {
+export const GameDetails = ({
+	developer,
+	platforms,
+	releaseDate,
+	rating,
+	genres,
+}: GameDetailsProps) => {
 	const platformIcons = {
 		windows: <Windows size={18} title="Windows" />,
 		linux: <Linux size={18} title="Linux" />,
@@ -33,7 +40,7 @@ export const GameDetails = ({ platforms, releaseDate, rating, genres }: GameDeta
 			<S.Content>
 				<div>
 					<S.Label>Developer</S.Label>
-					<S.Description>Gearbox Software</S.Description>
+					<S.Description>{developer}</S.Description>
 				</div>
 
 				<div>
