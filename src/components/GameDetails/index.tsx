@@ -6,13 +6,15 @@ import { Heading } from "components/Heading";
 import * as S from "./styles";
 
 type Platform = "windows" | "linux" | "mac";
+type Rating = "BR0" | "BR10" | "BR12" | "BR14" | "BR16" | "BR18";
 
 export type GameDetailsProps = {
 	platforms: Platform[];
 	releaseDate: string;
+	rating: Rating;
 };
 
-export const GameDetails = ({ platforms, releaseDate }: GameDetailsProps) => {
+export const GameDetails = ({ platforms, releaseDate, rating }: GameDetailsProps) => {
 	const platformIcons = {
 		windows: <Windows size={18} title="Windows" />,
 		linux: <Linux size={18} title="Linux" />,
@@ -60,7 +62,9 @@ export const GameDetails = ({ platforms, releaseDate }: GameDetailsProps) => {
 
 				<div>
 					<S.Label>Rating</S.Label>
-					<S.Description>18+</S.Description>
+					<S.Description>
+						{rating === "BR0" ? "FREE" : `${rating.replace("BR", "")}+`}
+					</S.Description>
 				</div>
 
 				<div>
