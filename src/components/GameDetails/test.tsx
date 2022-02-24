@@ -5,6 +5,7 @@ import { renderWithTheme } from "utils/tests/helpers";
 import { GameDetails, GameDetailsProps } from ".";
 
 const props: GameDetailsProps = {
+	developer: "Gearbox Software",
 	platforms: ["windows", "linux", "mac"],
 	releaseDate: "2020-11-21T23:00:00",
 	rating: "BR0",
@@ -21,6 +22,12 @@ describe("<GameDetails />", () => {
 		expect(screen.getByRole("heading", { name: /publisher/i })).toBeInTheDocument();
 		expect(screen.getByRole("heading", { name: /Rating/i })).toBeInTheDocument();
 		expect(screen.getByRole("heading", { name: /Genres/i })).toBeInTheDocument();
+	});
+
+	it("Should render developer correctly", () => {
+		renderWithTheme(<GameDetails {...props} />);
+
+		expect(screen.getByText(/Gearbox Software/i)).toBeInTheDocument();
 	});
 
 	it("Should render platforms icons correctly", () => {
