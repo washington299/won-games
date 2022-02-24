@@ -3,7 +3,7 @@ import { Story, Meta } from "@storybook/react";
 import { GameInfo, GameInfoProps } from ".";
 
 export default {
-	title: "GameInfo",
+	title: "Game/GameInfo",
 	component: GameInfo,
 	args: {
 		title: "Borderlands",
