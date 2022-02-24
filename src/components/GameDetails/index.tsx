@@ -9,9 +9,10 @@ type Platform = "windows" | "linux" | "mac";
 
 export type GameDetailsProps = {
 	platforms: Platform[];
+	releaseDate: string;
 };
 
-export const GameDetails = ({ platforms }: GameDetailsProps) => {
+export const GameDetails = ({ platforms, releaseDate }: GameDetailsProps) => {
 	const platformIcons = {
 		windows: <Windows size={18} title="Windows" />,
 		linux: <Linux size={18} title="Linux" />,
@@ -34,7 +35,13 @@ export const GameDetails = ({ platforms }: GameDetailsProps) => {
 
 				<div>
 					<S.Label>Release date</S.Label>
-					<S.Description>Nov 16, 2019</S.Description>
+					<S.Description>
+						{new Intl.DateTimeFormat("en-US", {
+							day: "numeric",
+							month: "short",
+							year: "numeric",
+						}).format(new Date(releaseDate))}
+					</S.Description>
 				</div>
 
 				<div>
