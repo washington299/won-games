@@ -20,3 +20,7 @@ export const Default: Story<GameCardSliderProps> = args => (
 		<GameCardSlider {...args} />
 	</div>
 );
+
+Default.args = {
+	arrowColor: "white",
+};

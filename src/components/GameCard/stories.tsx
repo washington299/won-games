@@ -5,6 +5,11 @@ import { GameCard, GameCardProps } from ".";
 export default {
 	title: "GameCard",
 	component: GameCard,
+	parameters: {
+		backgrounds: {
+			default: "won-dark",
+		},
+	},
 	args: {
 		img: "https://source.unsplash.com/user/willianjusten/1042x580",
 		title: "Population Zero",
