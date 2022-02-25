@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Settings } from "react-slick";
 import {
 	Close as CloseIcon,
@@ -8,7 +9,6 @@ import {
 import { Slider } from "components/Slider";
 
 import * as S from "./styles";
-import { useState } from "react";
 
 const settings: Settings = {
 	arrows: true,
@@ -53,6 +53,14 @@ export type GalleryProps = {
 
 export const Gallery = ({ items }: GalleryProps) => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
+
+	useEffect(() => {
+		const handleKeyUp = ({ key }: KeyboardEvent) => key === "Escape" && setIsModalOpen(false);
+
+		window.addEventListener("keyup", handleKeyUp);
+
+		return () => window.removeEventListener("keyup", handleKeyUp);
+	}, []);
 
 	return (
 		<S.Wrapper>
