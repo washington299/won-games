@@ -7,6 +7,7 @@ import {
 import { Slider } from "components/Slider";
 
 import * as S from "./styles";
+import { useState } from "react";
 
 const settings: Settings = {
 	arrows: true,
@@ -50,13 +51,23 @@ export type GalleryProps = {
 };
 
 export const Gallery = ({ items }: GalleryProps) => {
+	const [isModalOpen, setIsModalOpen] = useState(false);
+
 	return (
 		<S.Wrapper>
 			<Slider settings={settings}>
 				{items.map(item => (
-					<img key={item.src} role="button" src={item.src} alt={item.alt} />
+					<img
+						key={item.src}
+						role="button"
+						src={item.src}
+						alt={item.alt}
+						onClick={() => setIsModalOpen(true)}
+					/>
 				))}
 			</Slider>
+
+			<S.Modal aria-label="modal" aria-hidden={!isModalOpen} isOpen={isModalOpen}></S.Modal>
 		</S.Wrapper>
 	);
 };
