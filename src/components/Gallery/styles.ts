@@ -3,6 +3,10 @@ import media from "styled-media-query";
 
 export const Wrapper = styled.div`
 	${({ theme }) => css`
+		img {
+			cursor: pointer;
+		}
+
 		${media.lessThan("huge")`
 			overflow-x: hidden;
 		`}
@@ -76,7 +80,32 @@ type ModalProps = {
 };
 
 export const Modal = styled.div<ModalProps>`
-	${({ isOpen }) => css`
+	${({ theme, isOpen }) => css`
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: rgba(0, 0, 0, 0.7);
+		transition: opacity ${theme.transition.default};
+		z-index: ${theme.layers.modal};
+
 		${isOpen ? modalModifier.open() : modalModifier.close()};
+	`}
+`;
+
+export const Close = styled.div`
+	${({ theme }) => css`
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		text-align: right;
+		color: ${theme.colors.white};
+		cursor: pointer;
 	`}
 `;

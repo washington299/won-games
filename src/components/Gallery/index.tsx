@@ -1,5 +1,6 @@
 import { Settings } from "react-slick";
 import {
+	Close as CloseIcon,
 	ArrowBackIos as ArrowLeft,
 	ArrowForwardIos as ArrowRight,
 } from "@styled-icons/material-outlined";
@@ -67,7 +68,11 @@ export const Gallery = ({ items }: GalleryProps) => {
 				))}
 			</Slider>
 
-			<S.Modal aria-label="modal" aria-hidden={!isModalOpen} isOpen={isModalOpen}></S.Modal>
+			<S.Modal aria-label="modal" aria-hidden={!isModalOpen} isOpen={isModalOpen}>
+				<S.Close role="button" aria-label="Close modal" onClick={() => setIsModalOpen(false)}>
+					<CloseIcon size={40} />
+				</S.Close>
+			</S.Modal>
 		</S.Wrapper>
 	);
 };
