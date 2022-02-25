@@ -39,4 +39,23 @@ describe("<Gallery />", () => {
 		expect(modal.getAttribute("aria-hidden")).toBe("true");
 		expect(modal).toHaveStyle({ opacity: 0 });
 	});
+
+	it("should handle close modal when ESC button is pressed", () => {
+		const { container } = renderWithTheme(<Gallery items={mockGallery.slice(0, 2)} />);
+
+		const modal = screen.getByLabelText("modal");
+
+		expect(modal.getAttribute("aria-hidden")).toBe("true");
+		expect(modal).toHaveStyle({ opacity: 0 });
+
+		fireEvent.click(screen.getByRole("button", { name: mockGallery[0].alt }));
+
+		expect(modal.getAttribute("aria-hidden")).toBe("false");
+		expect(modal).toHaveStyle({ opacity: 1 });
+
+		fireEvent.keyUp(container, { key: "Escape" });
+
+		expect(modal.getAttribute("aria-hidden")).toBe("true");
+		expect(modal).toHaveStyle({ opacity: 0 });
+	});
 });
