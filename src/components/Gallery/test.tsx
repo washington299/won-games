@@ -21,7 +21,7 @@ describe("<Gallery />", () => {
 		);
 	});
 
-	it("should handle open modal", () => {
+	it("should handle open/close modal", () => {
 		renderWithTheme(<Gallery items={mockGallery.slice(0, 2)} />);
 
 		const modal = screen.getByLabelText("modal");
@@ -33,5 +33,10 @@ describe("<Gallery />", () => {
 
 		expect(modal.getAttribute("aria-hidden")).toBe("false");
 		expect(modal).toHaveStyle({ opacity: 1 });
+
+		fireEvent.click(screen.getByRole("button", { name: /Close modal/i }));
+
+		expect(modal.getAttribute("aria-hidden")).toBe("true");
+		expect(modal).toHaveStyle({ opacity: 0 });
 	});
 });
