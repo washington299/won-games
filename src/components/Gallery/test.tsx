@@ -1,6 +1,6 @@
 import "match-media-mock";
 
-import { screen } from "@testing-library/react";
+import { fireEvent, screen } from "@testing-library/react";
 
 import { renderWithTheme } from "utils/tests/helpers";
 
@@ -19,5 +19,19 @@ describe("<Gallery />", () => {
 			"src",
 			mockGallery[1].src,
 		);
+	});
+
+	it("should handle open modal", () => {
+		renderWithTheme(<Gallery items={mockGallery.slice(0, 2)} />);
+
+		const modal = screen.getByLabelText("modal");
+
+		expect(modal.getAttribute("aria-hidden")).toBe("true");
+		expect(modal).toHaveStyle({ opacity: 0 });
+
+		fireEvent.click(screen.getByRole("button", { name: mockGallery[0].alt }));
+
+		expect(modal.getAttribute("aria-hidden")).toBe("false");
+		expect(modal).toHaveStyle({ opacity: 1 });
 	});
 });
