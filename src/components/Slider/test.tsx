@@ -2,7 +2,7 @@ import "match-media-mock";
 
 import { render, screen } from "@testing-library/react";
 
-import { Slider } from ".";
+import Slider from ".";
 
 describe("<Slider />", () => {
 	it("should render correctly", () => {

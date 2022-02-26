@@ -1,4 +1,4 @@
-import { Slider, SliderSettings } from "components/Slider";
+import Slider, { SliderSettings } from "components/Slider";
 import { Banner, BannerProps } from "components/Banner";
 
 import * as S from "./styles";
