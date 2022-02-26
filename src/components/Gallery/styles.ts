@@ -109,3 +109,10 @@ export const Close = styled.div`
 		cursor: pointer;
 	`}
 `;
+
+export const Content = styled.div`
+	${() => css`
+		max-width: min(120rem, 100%);
+		max-height: 80rem;
+	`}
+`;
