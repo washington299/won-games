@@ -58,4 +58,14 @@ describe("<Gallery />", () => {
 		expect(modal.getAttribute("aria-hidden")).toBe("true");
 		expect(modal).toHaveStyle({ opacity: 0 });
 	});
+
+	it("Should open Modal with selected image", async () => {
+		renderWithTheme(<Gallery items={mockGallery.slice(0, 2)} />);
+
+		fireEvent.click(screen.getByRole("button", { name: mockGallery[1].alt }));
+
+		const imgSelected = await screen.findByRole("img", { name: /Cyberpunk 2/i });
+
+		expect(imgSelected.parentElement?.parentElement).toHaveClass("slick-active");
+	});
 });
